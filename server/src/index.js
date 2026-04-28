@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
 const cron = require('node-cron');
-require('dotenv').config();
+
 
 const connectDB = require('./config/db');
 const { errorHandler } = require('./middleware/errorHandler');
@@ -31,9 +32,12 @@ const readerRoutes   = require('./routes/reader');
 const bannerRoutes   = require('./routes/banners');
 const blogRoutes     = require('./routes/blogs');
 const blogCategoryRoutes = require('./routes/blogCategoryRoutes');
+const sitemapRoutes = require('./routes/sitemap');
 
 const app = express();
 
+// ✅ CORRECT PLACE
+app.set('trust proxy', 1);
 // Connect to Database
 connectDB();
 
@@ -77,6 +81,7 @@ app.use('/api/banners', bannerRoutes);
 app.use('/api/blogs',   blogRoutes);
 app.use('/api/cloudinary', cloudinaryRoutes);
 app.use('/api/blog-categories', blogCategoryRoutes);
+app.use('/', sitemapRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
