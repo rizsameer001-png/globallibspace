@@ -11,6 +11,7 @@ const connectDB = require('./config/db');
 const { errorHandler } = require('./middleware/errorHandler');
 const { scheduleJobs } = require('./utils/scheduler');
 
+
 // Route imports
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
@@ -36,6 +37,8 @@ const sitemapRoutes = require('./routes/sitemap');
 
 const app = express();
 
+// ✅ VERY IMPORTANT → register sitemap EARLY
+app.use('/', sitemapRoutes);
 // ✅ CORRECT PLACE
 app.set('trust proxy', 1);
 // Connect to Database
