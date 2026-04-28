@@ -81,7 +81,7 @@ const router = express.Router();
 // ✅ ONLY use your actual model
 const { BlogPost } = require("../models/index");
 
-router.get("/sitemap.xml", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const baseUrl =
       process.env.BASE_URL ||

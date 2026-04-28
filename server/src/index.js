@@ -38,7 +38,7 @@ const sitemapRoutes = require('./routes/sitemap');
 const app = express();
 
 // ✅ VERY IMPORTANT → register sitemap EARLY
-app.use('/', sitemapRoutes);
+app.use('/sitemap.xml', sitemapRoutes);
 // ✅ CORRECT PLACE
 app.set('trust proxy', 1);
 // Connect to Database
@@ -84,7 +84,7 @@ app.use('/api/banners', bannerRoutes);
 app.use('/api/blogs',   blogRoutes);
 app.use('/api/cloudinary', cloudinaryRoutes);
 app.use('/api/blog-categories', blogCategoryRoutes);
-app.use('/', sitemapRoutes);
+
 
 // Health check
 app.get('/api/health', (req, res) => {
