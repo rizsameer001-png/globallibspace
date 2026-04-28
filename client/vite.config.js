@@ -38,6 +38,8 @@ export default defineConfig({
     proxy: {
       '/api':     { target: 'http://localhost:5000', changeOrigin: true },
       '/uploads': { target: 'http://localhost:5000', changeOrigin: true },
+        // ✅ ADD THIS
+      '/sitemap.xml': { target: 'http://localhost:5000', changeOrigin: true},
     },
   },
 });
