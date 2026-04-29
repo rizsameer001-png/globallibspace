@@ -64,6 +64,11 @@ if (process.env.NODE_ENV === 'development') {
 
 // Static files
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+// ✅ add here
+app.get('/googled96db68815441ffa.html', (req, res) => {
+  res.type('text/plain');
+  res.send('google-site-verification: googled96db68815441ffa.html');
+});
 
 // API Routes
 app.use('/api/auth', authRoutes);
