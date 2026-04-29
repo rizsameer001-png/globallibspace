@@ -39,6 +39,8 @@ const app = express();
 
 // ✅ VERY IMPORTANT → register sitemap EARLY
 app.use('/sitemap.xml', sitemapRoutes);
+// 3. ✅ STATIC PUBLIC (ADD HERE)
+app.use(express.static(path.join(__dirname, 'public')));
 // ✅ CORRECT PLACE
 app.set('trust proxy', 1);
 // Connect to Database
