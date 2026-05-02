@@ -106,9 +106,16 @@ const getReadUrl = async (req, res, next) => {
     }
 
     // Build URL — Cloudinary (signed) or legacy local path
+    // let url;
+    // if (book.cloudinaryPublicId) {
+    //   url = getCloudinarySignedUrl(book.cloudinaryPublicId, 'raw');
+    // } else {
+    //   url = `/${book.ebookFile}`;
+    // }
+       // ✅ FIXED HERE
     let url;
-    if (book.cloudinaryPublicId) {
-      url = getCloudinarySignedUrl(book.cloudinaryPublicId, 'raw');
+    if (book.cloudinarySecureUrl) {
+      url = book.cloudinarySecureUrl;
     } else {
       url = `/${book.ebookFile}`;
     }
