@@ -96,9 +96,6 @@ const uploadToCloudinary = async (filePath, options = {}) => {
     folder:         options.folder || 'lms',
     public_id:      options.publicId,
     overwrite:      true,
-    type: "upload",           // ✅ FORCE public delivery
-    access_mode: "public",    // ✅ CRITICAL FIX
-
     // For raw files Cloudinary streams them without transformation
     ...(rType === 'raw' ? {} : {
       transformation: [{ quality: 'auto', fetch_format: 'auto' }],

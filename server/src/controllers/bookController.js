@@ -85,16 +85,7 @@ const getBook = async (req, res, next) => {
       getCurrency(),
     ]);
     if (!book) return res.status(404).json({ success:false, message:'Book not found' });
-    // res.json({ success:true, book: attachPriceDisplay(book, currency) });
-    const b = attachPriceDisplay(book, currency);
-
-    res.json({
-      success: true,
-      book: {
-        ...b._doc,
-        fileUrl: b.cloudinarySecureUrl   // ✅ ADD THIS
-      }
-    });
+    res.json({ success:true, book: attachPriceDisplay(book, currency) });
   } catch(e) { next(e); }
 };
 

@@ -151,23 +151,12 @@ export default function BookReader({ bookId, onClose }) {
       <div className="flex flex-1 overflow-hidden">
         {/* PDF iframe */}
         <div className="flex-1 overflow-hidden">
-{/*          <iframe
+          <iframe
             src={`${pdfUrl}#page=${currentPage}`}
             title="Book Reader"
             className="w-full h-full border-0"
             allow="fullscreen"
-          />*/}
-          {pdfUrl && (
-            <iframe
-              src={`${pdfUrl}#page=${currentPage}`}
-              title="Book Reader"
-              className="w-full h-full border-0"
-              allow="fullscreen"
-              onError={() => {
-              console.error('PDF failed to load:', pdfUrl);
-              }}
-            />
-          )}
+          />
         </div>
 
         {/* Notes panel */}
