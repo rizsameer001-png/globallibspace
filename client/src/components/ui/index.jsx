@@ -336,8 +336,8 @@ export const BookCard = ({ book, onReserve, reserved, priceDisplay }) => {
   <Link to={`/books/${book._id}`} className="block">
     
     {/* 📚 COVER WRAPPER */}
-    <div className="relative h-60 rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
-      
+    {/*<div className="relative h-72 rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">*/}
+      <div className="relative w-full aspect-[2/3] rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200">
       {/* ✨ INNER PADDING for cover */}
       <div className="absolute inset-2 rounded-lg overflow-hidden">
         <img
